@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Mono', monospace;
+}
+
+button {
+  height: 48px;
+  text-transform: uppercase;
+  width: 75px;
+  padding: 0;
+  margin-right: 5px;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+}
+
+#guess-form {
+  display: none;
+  align-items: center;
+  margin: 5px;
+}
+
+#guess {
+  height: 48px;
+  font-size: 32px;
+  text-transform: uppercase;
+  width: 250px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+#guesses {
+  display: none;
+}
