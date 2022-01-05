@@ -50,3 +50,11 @@ button {
 #guesses {
   display: none;
 }
+
+#incorrect-letter-tray {
+  display: none;
+}
+
+#incorrect-letters {
+  font-size: 24px;
+}
