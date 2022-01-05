@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Choose random word from store
   const pickRandomFromArray = (array) => {
-    return array[Math.floor(Math.random() * array.length)]
+    return array[Math.floor(Math.random() * array.length)].toUpperCase()
   }
 
   // Initialise game variables
   const wordAsArray = pickRandomFromArray(wordArray).split('')
-  const wordLength = wordAsArray.length + 1
+  const wordLength = wordAsArray.length
   let guessesMade = 0
   const guessesAllowed = 6
   let correctLetters = 0
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   guessButton.addEventListener('click', (e) => {
     e.preventDefault()
     if (guessInput.value.length === 6 && gameRunning) {
-      handleGuess(guessInput.value, guessesMade + 1)
+      handleGuess(guessInput.value.toUpperCase(), guessesMade + 1)
       guessInput.value = ''
     }
   })
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     row.style.display = 'flex'
     row.style.marginBottom = '5px'
     row.id = `row${rowNumber}`
-    for (let i = 1; i < wordLength; i++) {
+    for (let i = 1; i < wordLength + 1; i++) {
       const cell = document.createElement('div')
       cell.style.height = '50px'
       cell.style.width = '50px'
@@ -79,17 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     guessesCountDisplay.style.display = 'block'
     guessForm.style.display = 'flex'
-    const loopChecker = setInterval(() => {
-      gameEndCheck()
-      if (gameRunning === false) {
-        clearInterval(loopChecker)
-      }
-    }, 100)
   }
 
   const printScoreToConsole = () => {
     console.log(scoreCard)
-    console.log(`${correctLetters} letters guessed correctly`)
+    console.log(`${correctLetters}/${wordLength} letters guessed correctly`)
     console.log(`${guessesMade}/${guessesAllowed} guesses`)
   }
 
@@ -118,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreCard = newScoreCard
     updateDisplay()
     printScoreToConsole()
+    gameEndCheck()
   }
 
   const gameEndCheck = () => {
@@ -125,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       endGame()
       return true
     }
-    if (correctLetters >= wordLength) {
+    if (correctLetters === wordLength) {
       endGame()
       return true
     }
