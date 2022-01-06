@@ -13,6 +13,23 @@ button {
   width: 75px;
   padding: 0;
   margin-right: 5px;
+  border: none;
+  background: none;
+  background-color: white;
+  border: 2px solid darkgrey;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkgrey;
+  transition: 0.2s;
+}
+
+#start-button {
+  margin-top: 20px;
+  width: 200px;
+  transition: 0.2s;
 }
 
 #container {
@@ -37,6 +54,16 @@ button {
   width: 250px;
   margin-right: 5px;
   text-align: center;
+  transition: 0.2s;
+  border: none;
+  background-color: white;
+  border: 2px solid darkgrey;
+  border-radius: 4px;
+}
+
+#guesses {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 #game {
@@ -53,8 +80,44 @@ button {
 
 #incorrect-letter-tray {
   display: none;
+  margin-top: 30px;
 }
 
 #incorrect-letters {
   font-size: 24px;
+  width: 300px;
+  min-height: 200px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.incorrect-guess {
+  transition: 0.2s;
+  background-color: #CC040A;
+
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+  
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+  
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
