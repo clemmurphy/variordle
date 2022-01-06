@@ -6,3 +6,4 @@ TODO
 - Record completed numbers in the browser
 - Add 'try again' button
 - Add share behaviour
+- Add displaying correct answer when you use all guesses
